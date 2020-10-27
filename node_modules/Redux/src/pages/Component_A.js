@@ -20,6 +20,17 @@ const Component_A = () => {
                 onPress = {() => dispatch({type:"DECREASE_COUNTER"})}>
                 <Text style = {styles.text}>Decrease</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity 
+                style = {styles.buttons} 
+                onPress = {() => dispatch({
+                    type:"SET_USERNAME",
+                    payload : {
+                        newUserName : "Afra"
+                    }
+                })}>
+                <Text style = {styles.text}>Update User Name !</Text>
+            </TouchableOpacity>
         </View>
     );
 };
