@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 const CityItem = (props) => {
     return (
         <TouchableOpacity style={styles.container} onPress={props.onSelect}>
-            <Text style={styles.text}>{props.cityName}</Text>
+            <Text style={styles.text}>{props.cityNameg}</Text>
         </TouchableOpacity>
     )
 }
