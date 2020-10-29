@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Button, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Component_A = () => {
@@ -25,12 +25,14 @@ const Component_A = () => {
                 style = {styles.buttons} 
                 onPress = {() => dispatch({
                     type:"SET_USERNAME",
-                    payload : {
-                        newUserName : "Afra"
-                    }
+                    newUserName : "afra"   
                 })}>
                 <Text style = {styles.text}>Update User Name !</Text>
             </TouchableOpacity>
+            {/* <TextInput
+                style = {{borderWidth:2, margin: 5 }}
+                onChangeText = {(value) => dispatch({type : "ENTER_NAME", name : {value})}
+            /> */}
         </View>
     );
 };

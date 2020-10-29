@@ -9,10 +9,13 @@ function reducer(state, action){
             state.counter = state.counter -1
             return{...state}
         case "SET_USERNAME":
-            state.userName = action.payload.newUserName
+            console.log(reducer)
+            state.userName = action.newUserName
             return{...state}
+        // case "ENTER_NAME ":
+        //     state.userName = action.name
         default:
-        return{...state}
+        return state
     }
 }
 
