@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, View, FlatList } from 'react-native';
+import { useDispatch } from 'react-redux'
 
 import { RestaurantItem } from '../components'
 
 const Restaurants = (props) => {
     const [list, setList] = useState([]);
+    const dispatch = useDispatch();
 
     const fetchData = () => {
         axios.get(
@@ -22,17 +24,27 @@ const Restaurants = (props) => {
 
     useEffect(() => fetchData(), []);
 
-    const renderList = ({ item }) => <RestaurantItem item={item} />
+    const renderList = ({ item }) => {
+        return (
+            <RestaurantItem
+                item={item}
+                onAddFavorite={() => dispatch({
+                    type: "ADD_TO_FAVORITE",
+                    payload: { selectedRestaurant: item }
+                })}
+            />
+        )
+    }
 
     return (
-        <SafeAreaView>
-            <View>
-                <Text style={{ fontSize: 25, textAlign: 'center', fontWeight: 'bold' }}>Restaurants</Text>
+        <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
+                <Text style={{ fontSize: 25, textAlign: 'center', fontWeight: 'bold' }}>Restoranlar</Text>
                 <FlatList
                     keyExtractor={(_, index) => index.toString()}
                     data={list}
                     renderItem={renderList}
-                    ItemSeparatorComponent={() => <View style ={{borderWidth: 1, borderColor: "#e0e0e0"}}/>}
+                    ItemSeparatorComponent={() => <View style={{ borderWidth: 0.5, borderColor: '#bdbdbd' }} />}
                 />
             </View>
         </SafeAreaView>
