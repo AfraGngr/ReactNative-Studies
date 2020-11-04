@@ -51,3 +51,19 @@ export const jobs = StyleSheet.create({
     padding: 5
   }
 })
+
+export const saved = StyleSheet.create({
+  button :{
+    borderRadius : 10,
+    backgroundColor : "#af8eb5",
+    padding: 15,
+    marginVertical: 15,
+    marginHorizontal : 50
+  },
+  text : {
+    color :"white",
+    textAlign: "center",
+    fontSize : 20,
+    fontWeight:"bold"
+  }
+})
