@@ -3,7 +3,7 @@ import {TouchableOpacity, Text} from 'react-native';
 
 import { jobItem } from '../styles';
 
-const JobItem = (props) => {
+const SavedJobItem = (props) => {
   return (
       <TouchableOpacity
         style={jobItem.container}
@@ -16,4 +16,4 @@ const JobItem = (props) => {
     );
 };
 
-export {JobItem};
+export {SavedJobItem};
