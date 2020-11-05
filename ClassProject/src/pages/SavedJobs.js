@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState} from 'react';
-import {SafeAreaView, View, Text, FlatList, Button, TouchableOpacity, ScrollView} from 'react-native';
+import {SafeAreaView, View, Text, FlatList,  TouchableOpacity} from 'react-native';
 
 import { JobItem } from '../components'
 import { saved } from "../styles"

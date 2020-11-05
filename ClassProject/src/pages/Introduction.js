@@ -1,9 +1,9 @@
 import React from 'react';
-import {SafeAreaView, View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {SafeAreaView, View, Text, ScrollView} from 'react-native';
 import {introduction} from '../styles';
 import {TopicItem} from '../components';
-import Icon from 'react-native-vector-icons/FontAwesome';
-// import {DrawerItem} from '../components';
+import InfiniteScroll from 'react-native-infinite-looping-scroll';
+
 
 
 const topics = [
@@ -64,18 +64,24 @@ const Introduction = (props) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#eceff1'}}>
       <View style={{flex: 1}}>
-
         <View style={introduction.banner}>
           <Text style={introduction.bannerText}>Aradığınız dili seçin</Text>
         </View>
-        <ScrollView  horizontal contentContainerStyle={{alignItems: 'center'}} >
-          {topics.map((t) => {
-            return <TopicItem key={t.id} item={t} onSelect={() => selectLanguage(t.name)} />;
-          })}
-        </ScrollView>
+        <InfiniteScroll 
+          contentContainerStyle = {{alignItems :"center"}}
+          horizontal = {true}
+          data ={topics}
+          renderItem = {({item}) => <TopicItem item={item} onSelect={() => selectLanguage(item.name)} />}
+        />
       </View>
     </SafeAreaView>
   );
 };
 
 export {Introduction};
+
+{/* <ScrollView  horizontal contentContainerStyle={{alignItems: 'center'}} >
+{topics.map((t) => {
+  return <TopicItem key={t.id} item={t} onSelect={() => selectLanguage(t.name)} />;
+})}
+</ScrollView> */}

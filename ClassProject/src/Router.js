@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 
 function IntroPage(){
   return(
-    <Stack.Navigator screenOptions ={{headerShown :false}}>
+    <Stack.Navigator screenOptions ={{headerShown :false}} initialRouteName ="Introduction">
       <Stack.Screen name="Introduction" component={Introduction} />
       <Stack.Screen name="Jobs" component={Jobs} />
     </Stack.Navigator>

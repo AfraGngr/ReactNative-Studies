@@ -40,7 +40,7 @@ const Jobs = (props) => {
     const updatedJobList = [...savedJobList, selectedJob];
 
     AsyncStorage.setItem("@SAVED_JOBS", JSON.stringify(updatedJobList));
-    setModalFlag(false)
+    // setModalFlag(false)
   }
 
   return (
